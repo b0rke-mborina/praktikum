@@ -1,7 +1,7 @@
 let croatia = {
 	id: 1,
 	name: "Croatia",
-	parentId: 0 // 0 je root element
+	parentId: 0 // 0 - root element
 }
 
 let istria = {
