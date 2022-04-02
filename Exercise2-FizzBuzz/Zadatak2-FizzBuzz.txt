@@ -1,0 +1,5 @@
+Fizz - Buzz
+
+Za brojeve od 1 do N za svaki broj dijeljiv sa 3 ispisati Fizz,
+za svaki broj djeljiv sa 5 ispisati Buzz,
+a za brojeve djeljive sa 3 i 5 ispisati FizzBuzz.

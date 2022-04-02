@@ -1,0 +1,4 @@
+Fizz - Buzz - Suzz
+(nadogradnja 3. zadatka: Fizz - Buzz - Suzz)
+
+Rjesenje zadatka na bolji nacin - CLEAN CODE

@@ -1,0 +1,13 @@
+Day of year
+
+Napraviti funkciju koja za zadani datum vraca redni broj tog dana u godini.
+Primjer:
+- za 01.01.2012. potrebno je vratiti broj 1
+- za 01.02.2012. potrebno je vratiti broj 32
+Funkcija ima sljedeci potpis:
+
+function dayOfYear(year, month, day) {
+	// sva 3 argumenta su cijeli brojevi
+}
+
+Nije dozvoljeno koristiti date funkcije i biblioteke (npr moment).

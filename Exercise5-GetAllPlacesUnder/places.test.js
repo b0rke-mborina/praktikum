@@ -1,7 +1,7 @@
 const places = require('./places');
 const allPlacesUnder = require('./placesFunction');
 
-describe('return all places from array under a place with given id, which is also from array', () => {
+describe.skip('return all places from array under a place with given id, which is also from array', () => {
 	it("ako je placeId=0, vrati [croatia, istria, pula, rovinj, dalmacija, veruda]", () => {
 		expect(allPlacesUnder(0)).toStrictEqual([
 			places[0], // croatia

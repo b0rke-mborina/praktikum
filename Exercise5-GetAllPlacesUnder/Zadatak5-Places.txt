@@ -1,0 +1,5 @@
+Places
+
+Zadatak je napisati funkciju koja vraća popis mjesta koji
+se nalaze ispod mjesta s danim ID-jem. Popis mjesta nalazi
+se u arrayu "places".

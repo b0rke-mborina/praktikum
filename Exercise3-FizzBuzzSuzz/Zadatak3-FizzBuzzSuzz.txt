@@ -1,0 +1,8 @@
+Fizz - Buzz - Suzz
+(nadogradnja 2. zadatka: Fizz - Buzz)
+
+FizzBuzzSuzz,
+za brojeve djeljive sa 7 ispisati Suzz,
+za brojeve djeljive sa 7 i 3 FizzSuzz,
+sa 7 i 5 BuzzSuzz,
+a za brojeve djeljive sa 3,5,7 FizzBuzzSuzz
