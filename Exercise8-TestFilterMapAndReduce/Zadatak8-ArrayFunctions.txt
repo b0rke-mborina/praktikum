@@ -1,0 +1,14 @@
+Zadatak 8
+
+Isprobati Array metode:
+	- filter()
+	- map()
+	- reduce()
+
+Links:
+- JS Array: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+- Array.filter(): https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+- Array.map(): https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+- Array.reduce(): https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
+
+Dodatno: Array.forEach() se moze koristiti umjesto for petlje

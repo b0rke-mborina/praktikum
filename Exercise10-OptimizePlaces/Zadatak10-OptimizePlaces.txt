@@ -1,0 +1,5 @@
+Zadatak 11
+
+Optimizirati funkciju za rjesavanje problema s mjestima ispod
+mjesta s danim ID-jem (zadatak 5).
+Koristiti Tree.

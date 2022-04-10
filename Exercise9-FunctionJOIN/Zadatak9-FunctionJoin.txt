@@ -1,0 +1,7 @@
+Zadatak 9
+
+Isprogramirati funkciju JOIN koja spaja elemente polja u
+jedan string zajedno na nacin da ih povezuje zadanim tokenom:
+
+function join(arr, token);
+(koristiti reduce funkciju)
