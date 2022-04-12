@@ -45,19 +45,17 @@ function getAllPlacesUnder(placeId) {
 			if (childrenOfChild.length !== 0) Array.prototype.push.apply(result, getAllPlacesUnder(child.id));
 		});
 	}
-	// result = cleanArrayData(result);
-	// result.sort((a,b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0));
+	result = cleanArrayData(result);
+	result.sort((a, b) => a.id - b.id);
 	return result;
 }
 // console.log(getAllPlacesUnder(1));
 
-/*
 function cleanArrayData(arr) {
-	arr.forEach(el => {
-		delete el.children;
-	});
+	for (let element in arr) {
+		delete element.children;
+	}
 	return arr;
 }
-*/
 
 module.exports = getAllPlacesUnder;

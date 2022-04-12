@@ -7,25 +7,25 @@ describe('return all places from array under a place with given id, which is als
 			places[0], // croatia
 			places[1], // istria
 			places[2], // pula
-			places[5], // veruda
 			places[3], // rovinj
-			places[4]  // dalmacija
+			places[4], // dalmacija
+			places[5]  // veruda
 		]);
 	});
 	it("ako je placeId=1, vrati [istria, dalmacija, pula, rovinj, veruda]", () => {
 		expect(allPlacesUnder(1)).toStrictEqual([
 			places[1], // istria
 			places[2], // pula
-			places[5], // veruda
 			places[3], // rovinj
-			places[4]  // dalmacija
+			places[4], // dalmacija
+			places[5]  // veruda
 		]);
 	});
 	it("ako je placeId=2, vrati [pula, rovinj, veruda]", () => {
 		expect(allPlacesUnder(2)).toStrictEqual([
 			places[2], // pula
-			places[5], // veruda
-			places[3]  // rovinj
+			places[3], // rovinj
+			places[5]  // veruda
 		]);
 	});
 	it("ako je placeId=3, vrati [veruda]", () => {
