@@ -1,0 +1,14 @@
+Search engine query suggestion
+
+Radimo pretraživač nad sljedećim tekstom:
+https://drive.google.com/file/d/1yGKHPlwjuHCwOBfa9pkGyVhl1UcOYdRj/view
+(datoteka "long.txt")
+
+Zadatak je napisati "suggest tool" slično kaošto imamo na google-u,
+gdje nakon svake riječi nudimo odabir top 5 sljedećih riječi bez da korisnik mora tipkati.
+
+Lekcija je o:
+- Razumijevanje zahtjeva
+- Modeliranje zahtjeva i pretvaranje istih u kod
+- Pravila čistog koda
+- TDD
