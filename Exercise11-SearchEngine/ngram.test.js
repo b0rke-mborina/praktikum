@@ -4,29 +4,12 @@ const { sourceText } = require("./sourceText");
 const { generateIndex } = require("./wordindex");
 
 describe("splitter", () => {
-	let index = undefined;
-	/*beforeAll(() => {
-		index = generateIndex(sourceText);
-	});*/
-
 	test("Splitter splits text into array of words", () => {
 		expect(splitter(sourceText)).toEqual(
 			["i", "have", "been", "good", "|", "my", "best", "friend", "|", "is", "not",
 			"a", "fish", "|", "i", "am", "home", "|", "hi", "|", "are", "you", "home", "|"]
 		);
 	});
-	/*test("Splitter splits text into array of words with non alphanumeric characters alone", () => {
-		expect(splitter(sourceText)).toEqual(
-			["i", "have", "been", "good", "|", "my", "best", "friend", "|", "is", "not",
-			"a", "fish", "|", "i", "am", "home", "|", "hi", "|", "are", "you", "home", "|"]
-		)
-	});
-	test("Splitter splits text into array of words with non alphanumeric characters alone", () => {
-		expect(splitter(sourceText)).toEqual(
-			["i", "have", "been", "good", "|", "my", "best", "friend", "|", "is", "not",
-			"a", "fish", "|", "i", "am", "home", "|", "hi", "|", "are", "you", "home", "|"]
-		)
-	});*/
 });
 
 describe("index 1 word", () => {
@@ -42,10 +25,10 @@ describe("index 1 word", () => {
 		expect(index["have"]).toStrictEqual(["been"]);
 	});
 	test("For 'good' return undefined", () => {
-		expect(index["good"]).toStrictEqual(undefined);
+		expect(index["good"]).toStrictEqual([]);
 	});
 	test("For 'hi' return undefined", () => {
-		expect(index["hi"]).toStrictEqual(undefined);
+		expect(index["hi"]).toStrictEqual([]);
 	});
 	test("For 'my' return ['best']", () => {
 		expect(index["my"]).toStrictEqual(["best"]);
@@ -73,9 +56,15 @@ describe("index 2 words", () => {
 	test("For 'are you' return ['home']", () => {
 		expect(index["are you"]).toStrictEqual(["home"]);
 	});
+	test("For 'been good' return []", () => {
+		expect(index["been good"]).toStrictEqual([]);
+	});
+	test("For 'best friend' return []", () => {
+		expect(index["best friend"]).toStrictEqual([]);
+	});
 });
 
-describe.skip("index 3 words", () => {
+describe("index 3 words", () => {
 	let index = undefined;
 	beforeAll(() => {
 		index = generateIndex(sourceText);
@@ -86,5 +75,11 @@ describe.skip("index 3 words", () => {
 	});
 	test("For 'is not a' return ['fish']", () => {
 		expect(index["is not a"]).toStrictEqual(["fish"]);
+	});
+	test("For 'have been good' return []", () => {
+		expect(index["have been good"]).toStrictEqual([]);
+	});
+	test("For 'not a fish' return []", () => {
+		expect(index["not a fish"]).toStrictEqual([]);
 	});
 });
