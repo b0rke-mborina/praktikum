@@ -2,6 +2,7 @@ const { ngram } = require("./ngram");
 const { splitter } = require("./splitter");
 const { sourceText } = require("./sourceText");
 const { generateIndex } = require("./wordindex");
+const { textGenerator } = require("./textGenerator");
 
 describe("splitter", () => {
 	test("Splitter splits text into array of words", () => {
@@ -81,5 +82,14 @@ describe("index 3 words", () => {
 	});
 	test("For 'not a fish' return []", () => {
 		expect(index["not a fish"]).toStrictEqual([]);
+	});
+});
+
+describe("text generator", () => {
+	test("For original text return 'I am'", () => {
+		expect(textGenerator(sourceText, 10)).toStrictEqual("I am");
+	});
+	test("For original text return 'I am'", () => {
+		expect(textGenerator(sourceText, 40)).toStrictEqual("I am");
 	});
 });

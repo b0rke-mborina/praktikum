@@ -11,7 +11,7 @@ function generateIndex(source) {
 			if (isArrExceptLastElWithoutBreak(params)) handleArr(params, result);
 		}
 	});
-	console.log(result);
+	// console.log(result);
 	return result;
 }
 
