@@ -4,7 +4,7 @@ const { sourceText } = require("./sourceText");
 const { generateIndex } = require("./wordindex");
 const { textGenerator } = require("./textGenerator");
 
-describe("splitter", () => {
+describe.skip("splitter", () => {
 	test("Splitter splits text into array of words", () => {
 		expect(splitter(sourceText)).toEqual(
 			["i", "have", "been", "good", "|", "my", "best", "friend", "|", "is", "not",
@@ -13,7 +13,7 @@ describe("splitter", () => {
 	});
 });
 
-describe("index 1 word", () => {
+describe.skip("index 1 word", () => {
 	let index = undefined;
 	beforeAll(() => {
 		index = generateIndex(sourceText);
@@ -39,7 +39,7 @@ describe("index 1 word", () => {
 	});
 });
 
-describe("index 2 words", () => {
+describe.skip("index 2 words", () => {
 	let index = undefined;
 	beforeAll(() => {
 		index = generateIndex(sourceText);
@@ -65,7 +65,7 @@ describe("index 2 words", () => {
 	});
 });
 
-describe("index 3 words", () => {
+describe.skip("index 3 words", () => {
 	let index = undefined;
 	beforeAll(() => {
 		index = generateIndex(sourceText);
@@ -85,7 +85,7 @@ describe("index 3 words", () => {
 	});
 });
 
-describe("text generator", () => {
+describe.skip("text generator", () => {
 	test("For original text return 'I am'", () => {
 		expect(textGenerator(sourceText, 10)).toStrictEqual("I am");
 	});
