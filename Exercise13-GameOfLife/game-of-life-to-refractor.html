@@ -1,0 +1,187 @@
+<script>
+	var canvasWidth = 400;
+	var canvasHeight = 400;
+	var canvasPopulation = initializeCanvasRows(canvasHeight);
+	
+	var cells = initializeCanvasRows(canvasHeight);
+	
+	// fill canvas with random values
+	for (var row = 0; row < canvasWidth; row++) { //first loop
+		for (var column = 0; column < canvasHeight; column++) { //second loop
+			var randomCell = Math.floor(Math.random() * 2); //generates random number
+			randomCell === 1 ? canvasPopulation[row][column] = 1 : canvasPopulation[row][column] = 0;
+		}
+	}
+	
+	
+	//functions 
+
+	// inicialization of canvasa; cells: 1 - alive, 0 - dead; color the pixels
+	function generateCanvas() {
+		//this is first part of function
+		var canvasElementContext = document.getElementById("myCanvas").getContext("2d");
+		canvasElementContext.clearRect(0, 0, canvasWidth, canvasHeight);
+		for (var row = 1; row < canvasWidth; row++) { //first loop
+			for (var column = 1; column < canvasHeight; column++) { //second loop
+				if (canvasPopulation[row][column] === 1) {
+					canvasElementContext.fillStyle = "#FF0000";
+					canvasElementContext.fillRect(row, column, 1, 1);
+				}
+			}
+		}
+		//this is second part of the function
+		applyRulesToCells();
+		requestAnimationFrame(generateCanvas);
+	}
+	
+	function initializeCanvasRows(rowNumber) {
+		var rows = [];
+		for (var row = 0; row < rowNumber; row++) {
+			rows[row] = [];
+		}
+		return rows;
+	}
+
+	function getNumberOfAliveNeighbors(rowNumber, columnNumber) {
+		let numberOfAliveNeighbors = 0;
+		neighborsRelativeAddresses.forEach(relativeAddress => {
+			numberOfAliveNeighbors += canvasPopulation[rowNumber + relativeAddress.xAxis][columnNumber + relativeAddress.yAxis];
+		});
+		return numberOfAliveNeighbors;
+	}
+
+	// X X X
+	// X   X
+	// X X X
+	var neighborsRelativeAddresses = [
+		{xAxis: -1, yAxis: -1},
+		{xAxis: 0, yAxis: -1},
+		{xAxis: 1, yAxis: -1},
+		{xAxis: -1, yAxis: 0},
+		{xAxis: 1, yAxis: 0},
+		{xAxis: -1, yAxis: 1},
+		{xAxis: 0, yAxis: 1},
+		{xAxis: 1, yAxis: 1}
+	];
+
+	function applyRulesToCells() { //this is second part of the function
+		for (var row = 1; row < canvasWidth - 1; row++) { //first loop
+			for (var column = 1; column < canvasHeight - 1; column++) { //second loop
+			let cellValue = canvasPopulation[row][column];
+				//apply the rules to each cell
+				if (cellValue === 0) {
+					getNumberOfAliveNeighbors(row, column) === 3 ?
+						cells[row][column] = 1 :
+						cells[row][column] = 0;
+				} else {
+					getNumberOfAliveNeighbors(row, column) === 2 || getNumberOfAliveNeighbors(row, column) === 3 ?
+						cells[row][column] = 1 :
+						cells[row][column] = 0;
+				}
+			}
+		}
+
+		// apply cell values to canvas
+		for (var row = 0; row < canvasWidth; row++) {
+			for (var column = 0; column < canvasHeight; column++) {
+				canvasPopulation[row][column] = cells[row][column];
+			}
+		}
+	}
+
+// for (var i = 0; i < 400; i++) {
+	// canvasPopulation[i] = [];
+// }
+
+			// var ra = (row * 2);
+			// var rb = Math.floor(ra);
+			// if (randomCell === 1) {
+				// canvasPopulation[row][column] = 1;
+			// } else {
+				// canvasPopulation[row][column] = 0;
+			// }
+
+		// var ctx = c.getContext("2d");
+
+		
+		/*return canvasPopulation[rowNumber - 1][columnNumber - 1]
+			+ canvasPopulation[rowNumber - 1][columnNumber]
+			+ canvasPopulation[rowNumber - 1][columnNumber + 1]
+			+ canvasPopulation[rowNumber][columnNumber - 1]
+			+ canvasPopulation[rowNumber][columnNumber + 1]
+			+ canvasPopulation[rowNumber + 1][columnNumber - 1]
+			+ canvasPopulation[rowNumber + 1][columnNumber]
+			+ canvasPopulation[rowNumber + 1][columnNumber + 1];*/
+
+// 0
+	// if (getNumberOfAliveNeighbors(row, column) === 3) cells[row][column] = 1;
+
+	// 1
+	// if (getNumberOfAliveNeighbors(row, column) === 2 || getNumberOfAliveNeighbors(row, column) === 3) cells[row][column] = 1;
+	//else cells[row][column] = 1;
+
+	// switch (getNumberOfAliveNeighbors(row, column)) {
+							/*case 1:
+							case 2:
+								cells[row][column] = 0; //sets the value to 0
+								break;*/
+	// 						case 3:
+	// 							cells[row][column] = 1; //sets the value to 1
+	// 							break;
+	// 						case 4:
+	// 							cells[row][column] = 1;
+	// 						case 5:
+	// 							cells[row][column] = !(cells[row][column] | !cells[row][column]);
+	// 						default:
+	// 							cells[row][column] = 0; //sets the value to 0
+	// 					}
+	
+	// switch (getNumberOfAliveNeighbors(row, column)) {
+		// 					case 0:
+			// 				case 1:
+				// 				cells[row][column] = (cells[row][column] | !cells[row][column]);
+					// 			break;
+						// 	case 2:
+							// 	cells[row][column] = (cells[row][column] | !cells[row][column]);
+							/*case 3:
+								cells[row][column] = 1;*/
+	// 							break;
+		// 					case 4:
+			// 				case 5:
+				// 				cells[row][column] = (cells[row][column] & !cells[row][column]);
+					// 		case 6:
+						// 	case 7:
+							// case 8:
+								// cells[row][column] = 0;
+	// 							break;
+		// 					default:
+			// 					cells[row][column] = 0;
+				
+				// 		}
+
+	/*
+	1. Any live cell with fewer than two live neighbours dies, as if by underpopulation.
+	2. Any live cell with two or three live neighbours lives on to the next generation.
+	3. Any live cell with more than three live neighbours dies, as if by overpopulation.
+	4. Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
+
+	1. Any live cell with two or three live neighbours survives.
+	2. Any dead cell with three live neighbours becomes a live cell.
+	3. All other live cells die in the next generation. Similarly, all other dead cells stay dead.
+
+	// if (getNumberOfAliveNeighbors(row, column) === 2 || getNumberOfAliveNeighbors(row, column) === 3) cells[row][column] = 1;
+	// else cells[row][column] = 0;
+
+	// if (getNumberOfAliveNeighbors(row, column) === 3) cells[row][column] = 1;
+	///else cells[row][column] = 0;
+	
+	*/
+
+
+</script>
+
+<html>
+	<body onload="generateCanvas()">
+		<canvas id="myCanvas" width="400" height="400"></canvas>
+	</body>
+</html>
